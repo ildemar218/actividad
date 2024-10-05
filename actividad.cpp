@@ -35,7 +35,17 @@ void registrar(){ // funcion para agregar un nuevo pasajero a la lista
     }
     
 }
-
+void mostrar(){ // recorre la lista para mostrar los estudiantes codigos y notas
+    aux=cab;
+    cout<<"--------- "<<endl;
+    while(aux!=nullptr){
+        cout<<"nombre: "<<aux->nombre<<endl;
+        cout<<"documento: "<<aux->documento<<endl;
+        cout<<"destino: "<<aux->destino<<endl;
+        cout<<"--------- "<<endl;
+        aux = aux->sig;
+    }
+}
 
 
 int main(){
@@ -54,6 +64,9 @@ int main(){
             case 1:
                     registrar();
                 break;
+            case 2:
+                mostrar();
+                break;    
         }
     } while(opcion != 3);
 
