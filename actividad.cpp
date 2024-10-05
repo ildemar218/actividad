@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <cstdlib>
 using namespace std;
 
 struct nodo {
@@ -8,15 +10,15 @@ struct nodo {
     nodo *sig;
 };
 
-nodo *cab, *aux, *aux2;
+nodo *cab=nullptr, *aux, *aux2;
 
-void registrar(){ // funcion para agregar un nuevo estudiante a la lista 
-    aux = new nodo;
+void registrar(){ // funcion para agregar un nuevo pasajero a la lista 
+    aux = (struct nodo *) malloc (sizeof(nodo));
     cout<<"ingrese el nombre: ";
     cin>>aux->nombre;
     cout<<"documento: ";
     cin>>aux->documento;
-    cout<<"elija su destino: "<< endl;
+    cout<<"elija el numero de su destino: "<< endl;
     cout<<"1:bocana:" << endl;
     cout<<"2:pianguita:" << endl;
     cout<<"3:ladrilleros:";
@@ -38,7 +40,7 @@ void registrar(){ // funcion para agregar un nuevo estudiante a la lista
 
 int main(){
     int opcion;
-    char respuesta;
+
     do {
         cout << "Menu" << endl
             << "1. Registrar pasajero" << endl
@@ -46,19 +48,14 @@ int main(){
             //<< "3. Ordenar en base a codigos" << endl
             //<< "4. Ordenar en base a notas" << endl
             //<< "5. clacular mayor y menor" << endl
-            << "6. Salir" << endl;
+            << "3. Salir" << endl;
         cin >> opcion;
         switch (opcion) {
             case 1:
-                do {
                     registrar();
-                    cout << "Desea agregar otro pasajero? (s/n): ";
-                    cin >> respuesta;
-                } while (respuesta == 's' || respuesta == 'S');
                 break;
-
         }
-    } while(opcion != 6);
+    } while(opcion != 3);
 
     return 0;
 }
